@@ -1,5 +1,29 @@
 package nl.sourcelabs.exercises
 
+import java.time.LocalDate
+import java.time.Period
+
+data class Person(var firstName: String,
+                  var lastName: String,
+                  var birthDate: LocalDate,
+                  var emailAddress: String) {
+
+    fun getFullName() = firstName + " " + lastName
+
+    fun ageAt(refDate: LocalDate): Int = Period.between(birthDate, refDate).years
+}
+
+fun main(args: Array<String>) {
+    val p = Person("Sander", "Verbruggen", LocalDate.of(1974, 1, 29), "s@v.ws")
+    print(p.getFullName())
+    println(" is " + p.ageAt(LocalDate.of(2000, 1, 1)))
+
+    println(p.hashCode())
+    println(p.toString())
+
+    val op = p.copy(birthDate = LocalDate.of(2000,1,1))
+    println(op.toString())
+}
 /**
  * Assignment:
  *

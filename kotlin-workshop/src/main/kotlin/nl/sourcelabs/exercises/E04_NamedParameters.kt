@@ -12,5 +12,6 @@ data class Phone(
 )
 
 fun main(args: Array<String>) {
-    
+    val phone = Phone(manufacturer = "Apple", type = "iPhone 6S")
+    println(phone)
 }

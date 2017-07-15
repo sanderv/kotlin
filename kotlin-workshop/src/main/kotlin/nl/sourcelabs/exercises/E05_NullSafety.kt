@@ -13,13 +13,13 @@ class C(val value: String)
 
 // Implement
 fun extractCValue(a: A): String {
-    return ""
+    return a.b?.c?.value ?: "Unknown"
 }
 
 fun main(args: Array<String>) {
     val ok = A(B(C("Value")))
     val nok = (A(B(null)))
 
-    extractCValue(ok)
-    extractCValue(nok)
+    println("ok: " + extractCValue(ok))
+    println("nok: " + extractCValue(nok))
 }
